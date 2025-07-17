@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: "home.ollama.stream"
+  output:
+    ansi:
+      enabled: always
+  ai:
+    ollama:
+      base-url: ${APP_OLLAMA_BASE_URL}
+logging:
+  level:
+    com.jpdr.apps.home.ollama.stream: ${APP_LOG_LEVEL}
+app:
+  pod-name: ${APP_POD_NAME}
+  cors:
+    url: "http://localhost:3000"
+    method: "POST"
+  ollama:
+    options:
+      model: "qwen3:4b-q8_0"
+      temperature: 0.7
+      keep_alive: "1440m"
+      num-ctx: 8192
